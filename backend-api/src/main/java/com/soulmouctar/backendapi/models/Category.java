@@ -2,16 +2,17 @@ package com.soulmouctar.backendapi.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "product_id")
-//    private Product product;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
 
     public Category(Long id, String name) {
@@ -19,9 +20,7 @@ public class Category {
         this.name = name;
     }
 
-    public Category() {
-
-    }
+    public Category() {}
 
     public Long getId() {
         return id;

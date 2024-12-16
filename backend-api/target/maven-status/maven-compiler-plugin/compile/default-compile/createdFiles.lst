@@ -1,0 +1,11 @@
+com\soulmouctar\backendapi\BackendApiApplication.class
+com\soulmouctar\backendapi\repository\CategoryRepository.class
+com\soulmouctar\backendapi\models\Product.class
+com\soulmouctar\backendapi\controllers\ProductController.class
+com\soulmouctar\backendapi\models\Category.class
+com\soulmouctar\backendapi\models\Pays.class
+com\soulmouctar\backendapi\controllers\CategoryController.class
+com\soulmouctar\backendapi\controllers\PaysController.class
+com\soulmouctar\backendapi\repository\PaysRepository.class
+com\soulmouctar\backendapi\models\Personne.class
+com\soulmouctar\backendapi\repository\ProductRepository.class
