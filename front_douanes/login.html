@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Douanière - Authentification</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-96">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Gestion Douanière</h1>
+            <p class="text-gray-600">Authentification Sécurisée</p>
+        </div>
+
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="block mb-2 text-gray-700"> Nom d'utilisateur</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    required 
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Votre identifiant"
+                >
+                <small id="usernameError" class="text-red-500 hidden">Identifiant requis</small>
+            </div>
+
+            <div>
+                <label class="block mb-2 text-gray-700">Mot de passe</label>
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        required 
+                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Votre mot de passe"
+                    >
+                    <button 
+                        type="button" 
+                        id="togglePassword" 
+                        class="absolute inset-y-0 right-0 flex items-center pr-3"
+                    >
+                        <i id="passwordToggleIcon" class="fas fa-eye-slash text-gray-500"></i>
+                    </button>
+                </div>
+                <small id="passwordError" class="text-red-500 hidden">Mot de passe requis</small>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input 
+                        type="checkbox" 
+                        id="rememberMe" 
+                        class="mr-2"
+                    >
+                    <label for="rememberMe" class="text-gray-700">Se souvenir de moi</label>
+                </div>
+                <a href="#" class="text-blue-500 hover:underline">Mot de passe oublié ?</a>
+            </div>
+
+            <button 
+                type="submit" 
+                id="loginButton"
+                class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-md hover:opacity-90 transition duration-300"
+            >
+                Connexion
+            </button>
+
+            <div id="loginError" class="text-red-500 text-center hidden">
+                Identifiants incorrects
+            </div>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-gray-600">
+                Pas de compte ? 
+                <a href="#" class="text-blue-500 hover:underline">Contactez l'administrateur</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="assets/js/script_login.js">
+    
+    </script>
+</body>
+</html>
