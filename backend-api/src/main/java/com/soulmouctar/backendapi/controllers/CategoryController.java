@@ -1,6 +1,7 @@
 package com.soulmouctar.backendapi.controllers;
 
 import com.soulmouctar.backendapi.models.Category;
+import com.soulmouctar.backendapi.models.Product;
 import com.soulmouctar.backendapi.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,17 +10,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/categoy")
+@RequestMapping("/api/category")
 
 public class CategoryController {
-    @Autowired
+
     final CategoryRepository categoryRepository;
 
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Category> getCategories() {
         return this.categoryRepository.findAll();
     }
@@ -36,7 +37,14 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable("id") Long id, @RequestBody Category category) {
-        category.setId(id);
+        // Vérifier si le produit existe
+        Category cate = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Categorie non trouvé avec l'id : " + id));
+
+        // Mettre à jour les informations du produit
+        category.setName(category.getName());
+
+        // Sauvegarder les modifications
         return this.categoryRepository.save(category);
     }
 }

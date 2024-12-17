@@ -5,21 +5,23 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Pays {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "pays")
-    private List<Tarification> tarifications;
+    @OneToMany(mappedBy = "category")
+    private List<Product> product;
+    @OneToMany(mappedBy = "category")
+    private List<Product> tarification;
 
-    public Pays(Long id, String name) {
+    public Category(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Pays() {}
+    public Category() {}
 
     public Long getId() {
         return id;

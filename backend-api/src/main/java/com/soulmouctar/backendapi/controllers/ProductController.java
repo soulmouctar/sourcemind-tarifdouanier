@@ -13,14 +13,13 @@ import java.util.Optional;
 //@CrossOrigin
 public class ProductController {
 
-    @Autowired
     final ProductRepository repo;
 
     public ProductController(ProductRepository repo) {
         this.repo = repo;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Product> getAllProducts() {
         return repo.findAll();
     }
@@ -30,7 +29,7 @@ public class ProductController {
         return Optional.of(repo.findById(id).get());
     }
 
-    @PostMapping
+    @PostMapping(value = "/", consumes = {"application/json"})
     public Product createProduct(@RequestBody Product product) {
         return repo.save(product);
     }

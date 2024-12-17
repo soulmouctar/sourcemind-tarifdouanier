@@ -5,14 +5,20 @@ import com.soulmouctar.backendapi.repository.PaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/pays")
 public class PaysController {
-    @Autowired
-    private PaysRepository paysRepository;
 
-    @GetMapping
-    public Iterable<Pays> getAllPays() {
+    final PaysRepository paysRepository;
+
+    public PaysController(PaysRepository paysRepository) {
+        this.paysRepository = paysRepository;
+    }
+
+    @GetMapping("/")
+    public List<Pays> getAllPays() {
         return paysRepository.findAll();
     }
 
@@ -21,7 +27,7 @@ public class PaysController {
         return paysRepository.findById(id).get();
     }
 
-    @PostMapping()
+    @PostMapping(value = "/", consumes = {"application/json"})
     public Pays createPays(@RequestBody Pays pays) {
         return paysRepository.save(pays);
     }

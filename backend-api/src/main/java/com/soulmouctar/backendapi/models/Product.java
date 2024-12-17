@@ -2,16 +2,23 @@ package com.soulmouctar.backendapi.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String code;
     private String description;
+
     @ManyToOne
     private Category category;
+
+    @OneToMany(mappedBy = "product")
+    private List<Tarification> tarifications;
 
     public Product(Long id, String name, String description, String code, Category category) {
         this.id = id;
