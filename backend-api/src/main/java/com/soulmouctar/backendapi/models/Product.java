@@ -1,28 +1,31 @@
 package com.soulmouctar.backendapi.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String code;
     private String description;
 
-//    @OneToMany(mappedBy = "category")
-//    private Set<Category> recordings = new HashSet<>();
-    private String catergory_id;
+    @ManyToOne
+    private Category category;
 
-    public Product(Long id, String name, String description, String catergory_id) {
+    @OneToMany(mappedBy = "product")
+    private List<Tarification> tarifications;
+
+    public Product(Long id, String name, String description, String code, Category category) {
         this.id = id;
         this.name = name;
+        this.code = code;
         this.description = description;
-        this.catergory_id = catergory_id;
+        this.category = category;
     }
 
     public Product() {}
@@ -35,12 +38,24 @@ public class Product {
         this.name = name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setCatergory_id(String catergory_id) {
-        this.catergory_id = catergory_id;
+    public void setCatergory_id(Category category) {
+        this.category = category;
     }
 
     public Long getId() {
@@ -55,8 +70,8 @@ public class Product {
         return description;
     }
 
-    public String getCatergory_id() {
-        return catergory_id;
+    public String getCategory() {
+        return category.getName();
     }
 
 

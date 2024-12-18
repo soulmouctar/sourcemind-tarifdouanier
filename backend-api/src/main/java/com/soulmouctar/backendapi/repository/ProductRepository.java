@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     // Méthode de recherche par chaîne de caractères (nom ou description)
-    List<Product> findByNomContainingOrDescriptionContaining(String nom, String description);
+    //List<Product> findByNomContainingOrDescriptionContaining(String nom, String description);
 
 }
