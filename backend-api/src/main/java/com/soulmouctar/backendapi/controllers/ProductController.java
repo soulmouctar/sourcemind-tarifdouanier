@@ -24,7 +24,7 @@ public class ProductController {
         return repo.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(headers = "/{id}", consumes = {"application/json"})
     public Optional<Product> getProduct(@PathVariable("id") Long id) {
         return Optional.of(repo.findById(id).get());
     }

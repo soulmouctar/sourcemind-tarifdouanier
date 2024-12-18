@@ -1,30 +1,46 @@
 // Definition des constantes
 const baseUrl = 'http://localhost:8080/api/'
-// recuperation des data du front HTML
-let buttonSearch = document.querySelector(".search");
-let search = document.querySelector("#search");
-let iconecloud = document.querySelector(".flex");
 
-buttonSearch.addEventListener("click", () => {
-    console.log("hello");
-    getWeather(search.value)
-});
+getTariffs();
+getProducts();
+getCategories();
 
-// Getting local data if exists
-if(localStorage.getItem('city') != null){
-    document.querySelector(".city").innerHTML = localStorage.getItem('city');
-    document.querySelector(".temp").innerHTML = localStorage.getItem('temp') + "°C";
-    document.querySelector(".humidity").innerHTML = "Humidity: " + localStorage.getItem('humidity') + "%";
-    document.querySelector(".pressure").innerHTML = "Pressure: " + localStorage.getItem('pressure') + " hPa";
-    document.querySelector(".wind").innerHTML = "Wind speed: " + localStorage.getItem('wind') + " m/s";
-    document.querySelector(".description").innerHTML = localStorage.getItem('description');
-    const img = document.createElement('img');
-    img.src = "https://openweathermap.org/img/wn/" + localStorage.getItem('icon') + ".png";
-    img.alt = localStorage.getItem('description');
-    img.width = 300;
-    img.height = 300;
-    iconecloud.appendChild(img);
+// Fonction de recuperation des Tarifications
+export async function getTariffs() {
+    try {
+        const response = await fetch(baseUrl + 'tarification');
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
 }
+
+//fonction de recuperation des produits
+export async function getProducts() {
+    try {
+        const response = await fetch(baseUrl + 'product');
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//fonction de recuperation des categories
+export async function getCategories() {
+    try {
+        const response = await fetch(baseUrl + 'category');
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 // recuperation des données sur le serveur
 async function getWeather(cityName){
