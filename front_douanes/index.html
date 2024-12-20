@@ -10,7 +10,7 @@
             theme: {
                 extend: {
                     colors: {
-                        'custom-blue': '#2C3E50',
+                        'custom-blue': '#156dc7',
                         'custom-light': '#ECF0F1'
                     }
                 }
@@ -31,13 +31,14 @@
 <body class="bg-custom-light text-gray-800 min-h-screen">
     <div id="app">
         <!-- Navigation -->
+
         <nav class="bg-custom-blue text-white p-4 shadow-md">
             <div class="container mx-auto flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold" data-page="home">Tarifs Douaniers</a>
                 <div class="space-x-4">
                     <a href="#" data-page="home" class="nav-link hover:text-gray-300">Accueil</a>
                     <a href="#" data-page="tariffs" class="nav-link hover:text-gray-300">Tarifs</a>
-                    <a href="#" data-page="search" class="nav-link hover:text-gray-300">Recherche</a>
+                    <a href="login.html" class="hover:text-gray-300">Administration</a>
                 </div>
             </div>
         </nav>
@@ -103,8 +104,7 @@
         </div>
     </template>
 
-    <script src="assets/js/seach.js">
-
-    </script>
+    <script src="assets/js/seach.js"></script>
+    <scrip src="assets/js/db.js"></scrip>
 </body>
 </html>
