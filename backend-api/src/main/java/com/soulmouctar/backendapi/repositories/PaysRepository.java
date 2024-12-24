@@ -1,4 +1,4 @@
-package com.soulmouctar.backendapi.repository;
+package com.soulmouctar.backendapi.repositories;
 
 import com.soulmouctar.backendapi.models.Pays;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -20,7 +20,9 @@ async function getTariffs() {
   }
 }
 
-//const tariffData = getTariffs();
+const tariffDatas = getTariffs();
+console.log(tariffData);
+
 
 const tariffData = [
   { code: "8701.20", description: "Tracteurs routiers", tarif: 22, pays: "UE" },

@@ -1,8 +1,7 @@
 package com.soulmouctar.backendapi.controllers;
 
 import com.soulmouctar.backendapi.models.Product;
-import com.soulmouctar.backendapi.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.soulmouctar.backendapi.repositories.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

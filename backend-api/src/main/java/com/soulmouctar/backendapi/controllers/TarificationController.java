@@ -1,8 +1,7 @@
 package com.soulmouctar.backendapi.controllers;
 
 import com.soulmouctar.backendapi.models.Tarification;
-import com.soulmouctar.backendapi.repository.TarificationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.soulmouctar.backendapi.repositories.TarificationRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +28,7 @@ public class TarificationController {
         return tarificationRepository.save(tarification);
     }
 
-    @PostMapping(value = "/", consumes = {"application/json"})
+    @PostMapping
     public Tarification createTarification(@RequestBody Tarification tarification) {
         return tarificationRepository.save(tarification);
     }

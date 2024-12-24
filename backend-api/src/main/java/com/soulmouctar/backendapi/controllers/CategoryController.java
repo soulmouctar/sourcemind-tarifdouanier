@@ -1,9 +1,7 @@
 package com.soulmouctar.backendapi.controllers;
 
 import com.soulmouctar.backendapi.models.Category;
-import com.soulmouctar.backendapi.models.Product;
-import com.soulmouctar.backendapi.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.soulmouctar.backendapi.repositories.CategoryRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +39,7 @@ public class CategoryController {
         Category cate = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Categorie non trouvé avec l'id : " + id));
 
-        // Mettre à jour les informations du produit
+        // Mettre à jour les informations de la categorie
         category.setName(category.getName());
 
         // Sauvegarder les modifications

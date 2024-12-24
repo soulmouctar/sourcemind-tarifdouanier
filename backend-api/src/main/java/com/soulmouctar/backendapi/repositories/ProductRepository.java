@@ -1,10 +1,8 @@
-package com.soulmouctar.backendapi.repository;
+package com.soulmouctar.backendapi.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.soulmouctar.backendapi.models.Product;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
