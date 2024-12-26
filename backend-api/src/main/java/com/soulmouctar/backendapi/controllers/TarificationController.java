@@ -8,7 +8,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tarification")
-@CrossOrigin
+//@CrossOrigin
+
 public class TarificationController {
 
     final TarificationRepository tarificationRepository;

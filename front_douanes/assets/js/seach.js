@@ -1,30 +1,20 @@
 // Definition des constantes
-const baseUrl = 'http://localhost:8080/api/'
-
+const baseUrl = "http://localhost:8080/api/";
+let tariffData = [];
 // Fonction de recuperation des Tarifications
-async function getTariffs() {
-  try {
-    //const response = await fetch(baseUrl + 'tarification');
-    //const data = await response.json();
-    let datas = [];
-    let url = baseUrl + 'tarification';
-    fetch(url).then((response) => {
-      response.json().then((data) => {
-        datas = JSON.stringify(data);
-        datas = JSON.parse(datas);
-        return datas;
-      });
-    })
-  } catch (error) {
-    console.log(error);
-  }
-}
 
-const tariffDatas = getTariffs();
-console.log(tariffData);
+fetch(baseUrl + "tarification")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data); // Affichez les données reçues en console
+    tariffData = data;
+  })
+  .catch((error) => console.error("Erreur API :", error));
 
+// tariffData = getTariffs();
+// console.log(tariffData);
 
-const tariffData = [
+const tariffDatax = [
   { code: "8701.20", description: "Tracteurs routiers", tarif: 22, pays: "UE" },
   {
     code: "8703.21",
@@ -51,7 +41,6 @@ const tariffData = [
     pays: "Inde",
   },
 ];
-
 
 // Gestion de la navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
@@ -88,10 +77,10 @@ function navigateTo(page) {
         const row = document.createElement("tr");
         row.classList.add("border-b", "hover:bg-gray-100");
         row.innerHTML = `
-                    <td class="p-3">${tariff.code}</td>
+                    <td class="p-3">${tariff.id}</td>
                     <td class="p-3">${tariff.description}</td>
                     <td class="p-3">${tariff.prix}%</td>
-                    <td class="p-3">${tariff.pays}</td>
+                    <td class="p-3">${tariff.pays.name}</td>
                 `;
         tariffBody.appendChild(row);
       });

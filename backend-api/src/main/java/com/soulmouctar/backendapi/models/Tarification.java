@@ -31,7 +31,6 @@ public class Tarification {
     }
 
     public Tarification() {
-
     }
 
     public Long getId() {

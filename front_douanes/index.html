@@ -1,110 +1,135 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tarifs Douaniers - Application</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'custom-blue': '#156dc7',
-                        'custom-light': '#ECF0F1'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "custom-blue": "#156dc7",
+              "custom-light": "#ECF0F1",
+            },
+          },
+        },
+      };
     </script>
     <style>
-        /* Animation personnalisée */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+      /* Animation personnalisée */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out;
+        to {
+          opacity: 1;
         }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
     </style>
-</head>
-<body class="bg-custom-light text-gray-800 min-h-screen">
+  </head>
+  <body class="bg-custom-light text-gray-800 min-h-screen">
     <div id="app">
-        <!-- Navigation -->
+      <!-- Navigation -->
 
-        <nav class="bg-custom-blue text-white p-4 shadow-md">
-            <div class="container mx-auto flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold" data-page="home">Tarifs Douaniers</a>
-                <div class="space-x-4">
-                    <a href="#" data-page="home" class="nav-link hover:text-gray-300">Accueil</a>
-                    <a href="#" data-page="tariffs" class="nav-link hover:text-gray-300">Tarifs</a>
-                    <a href="login.html" class="hover:text-gray-300">Administration</a>
-                </div>
-            </div>
-        </nav>
+      <nav class="bg-custom-blue text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold" data-page="home"
+            >Tarifs Douaniers</a
+          >
+          <div class="space-x-4">
+            <a href="#" data-page="home" class="nav-link hover:text-gray-300"
+              >Accueil</a
+            >
+            <a href="#" data-page="tariffs" class="nav-link hover:text-gray-300"
+              >Tarifs</a
+            >
+            <a
+              href="http://localhost:3001/#/login/"
+              target="_blank"
+              class="hover:text-gray-300"
+              >Administration</a
+            >
+          </div>
+        </div>
+      </nav>
 
-        <!-- Contenu principal -->
-        <main id="content" class="container mx-auto mt-8 p-4">
-            <!-- Pages seront chargées ici dynamiquement -->
-        </main>
+      <!-- Contenu principal -->
+      <main id="content" class="container mx-auto mt-8 p-4">
+        <!-- Pages seront chargées ici dynamiquement -->
+      </main>
     </div>
 
     <template id="home-page">
-        <div class="text-center animate-fade-in">
-            <h1 class="text-4xl font-bold mb-6 text-custom-blue">Bienvenue sur l'Application de Tarifs Douaniers</h1>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                <p class="text-xl mb-4">Consultez facilement les tarifs douaniers pour différents produits et pays.</p>
-                <div class="grid md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-blue-100 p-4 rounded-lg">
-                        <h2 class="font-bold text-lg mb-2">Recherche Rapide</h2>
-                        <p>Trouvez instantanément les tarifs par produit ou code.</p>
-                    </div>
-                    <div class="bg-green-100 p-4 rounded-lg">
-                        <h2 class="font-bold text-lg mb-2">Mise à Jour Régulière</h2>
-                        <p>Informations toujours à jour et précises.</p>
-                    </div>
-                    <div class="bg-purple-100 p-4 rounded-lg">
-                        <h2 class="font-bold text-lg mb-2">Multi-Pays</h2>
-                        <p>Tarifs pour différents pays et zones commerciales.</p>
-                    </div>
-                </div>
-                <button id="start-search" class="mt-6 bg-custom-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
-                    Commencer la Recherche
-                </button>
+      <div class="text-center animate-fade-in">
+        <h1 class="text-4xl font-bold mb-6 text-custom-blue">
+          Bienvenue sur l'Application de Tarifs Douaniers
+        </h1>
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+          <p class="text-xl mb-4">
+            Consultez facilement les tarifs douaniers pour différents produits
+            et pays.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4 mt-6">
+            <div class="bg-blue-100 p-4 rounded-lg">
+              <h2 class="font-bold text-lg mb-2">Recherche Rapide</h2>
+              <p>Trouvez instantanément les tarifs par produit ou code.</p>
             </div>
+            <div class="bg-green-100 p-4 rounded-lg">
+              <h2 class="font-bold text-lg mb-2">Mise à Jour Régulière</h2>
+              <p>Informations toujours à jour et précises.</p>
+            </div>
+            <div class="bg-purple-100 p-4 rounded-lg">
+              <h2 class="font-bold text-lg mb-2">Multi-Pays</h2>
+              <p>Tarifs pour différents pays et zones commerciales.</p>
+            </div>
+          </div>
+          <button
+            id="start-search"
+            class="mt-6 bg-custom-blue text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+          >
+            Commencer la Recherche
+          </button>
         </div>
+      </div>
     </template>
 
     <template id="tariffs-page">
-        <div class="animate-fade-in">
-            <h2 class="text-3xl font-bold mb-6 text-center">Tableau des Tarifs Douaniers</h2>
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <div class="p-4 bg-gray-100">
-                    <input 
-                        type="text" 
-                        id="tariff-search" 
-                        placeholder="Rechercher un produit, code ou pays..." 
-                        class="w-full p-2 border rounded-md"
-                    >
-                </div>
-                <table class="w-full" id="tariffs-table">
-                    <thead class="bg-gray-200">
-                        <tr>
-                            <th class="p-3 text-left">Code Produit</th>
-                            <th class="p-3 text-left">Description</th>
-                            <th class="p-3 text-left">Tarif (%)</th>
-                            <th class="p-3 text-left">Pays</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tariffs-body">
-                        <!-- Les lignes seront ajoutées dynamiquement par JavaScript -->
-                    </tbody>
-                </table>
-            </div>
+      <div class="animate-fade-in">
+        <h2 class="text-3xl font-bold mb-6 text-center">
+          Tableau des Tarifs Douaniers
+        </h2>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="p-4 bg-gray-100">
+            <input
+              type="text"
+              id="tariff-search"
+              placeholder="Rechercher un produit, code ou pays..."
+              class="w-full p-2 border rounded-md"
+            />
+          </div>
+          <table class="w-full" id="tariffs-table">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="p-3 text-left">Code Produit</th>
+                <th class="p-3 text-left">Description</th>
+                <th class="p-3 text-left">Tarif (%)</th>
+                <th class="p-3 text-left">Pays</th>
+              </tr>
+            </thead>
+            <tbody id="tariffs-body">
+              <!-- Les lignes seront ajoutées dynamiquement par JavaScript -->
+            </tbody>
+          </table>
         </div>
+      </div>
     </template>
 
     <script src="assets/js/seach.js"></script>
     <scrip src="assets/js/db.js"></scrip>
-</body>
+  </body>
 </html>

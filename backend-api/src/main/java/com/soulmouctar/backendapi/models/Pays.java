@@ -2,15 +2,17 @@ package com.soulmouctar.backendapi.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 public class Pays {
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
 
     @OneToMany(mappedBy = "pays")
@@ -22,18 +24,29 @@ public class Pays {
         this.tarifications = tarifications;
     }
 
+    public Pays() {
+
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Tarification> getTarifications() {
         return tarifications;
     }
 
-    public Pays() {}
-
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "Pays{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tarifications=" + tarifications +
+                '}';
     }
 
     public void setId(Long id) {
@@ -42,5 +55,9 @@ public class Pays {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTarifications(List<Tarification> tarifications) {
+        this.tarifications = tarifications;
     }
 }

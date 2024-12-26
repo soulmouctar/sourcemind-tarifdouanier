@@ -18,7 +18,7 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product")
-    private List<Tarification> tarifications;
+    private List<Tarification> tarification;
 
     public Product(Long id, String name, String description, String code, Category category) {
         this.id = id;
