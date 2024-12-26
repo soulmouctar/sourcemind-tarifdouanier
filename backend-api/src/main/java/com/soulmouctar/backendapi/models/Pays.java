@@ -1,11 +1,13 @@
 package com.soulmouctar.backendapi.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.List;
 
 @Entity
 public class Pays {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -14,16 +16,21 @@ public class Pays {
     @OneToMany(mappedBy = "pays")
     private List<Tarification> tarifications;
 
-    public Pays(Long id, String name) {
+    public Pays(Long id, String name, List<Tarification> tarifications) {
         this.id = id;
         this.name = name;
+        this.tarifications = tarifications;
     }
-
-    public Pays() {}
 
     public Long getId() {
         return id;
     }
+
+    public List<Tarification> getTarifications() {
+        return tarifications;
+    }
+
+    public Pays() {}
 
     public String getName() {
         return name;

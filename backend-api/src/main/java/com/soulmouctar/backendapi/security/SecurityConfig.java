@@ -26,7 +26,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((requests) ->
                 requests
                         //Rendre certains endpoint public
-  //                      .requestMatchers("/api/**").permitAll()
+                       .requestMatchers("/api/**").permitAll()
  //                       .requestMatchers("/public/**").permitAll()
 //                        .requestMatchers("/admin").denyAll()
                         .anyRequest().authenticated());
@@ -37,14 +37,14 @@ public class SecurityConfig {
     }
 
     @Bean
-    @ConditionalOnMissingBean
+//    @ConditionalOnMissingBean
     public UserDetailsService userDetailsService(DataSource dataSource) {
         JdbcUserDetailsManager manager =
                 new JdbcUserDetailsManager(dataSource);
         if (!manager.userExists("user1")) {
             manager.createUser(
                     User.withUsername("user1")
-                            .password("{noop}password1")
+                            .password("{noop}user1")
                             .roles("USER")
                             .build()
             );
@@ -52,7 +52,7 @@ public class SecurityConfig {
         if (!manager.userExists("admin")) {
             manager.createUser(
                     User.withUsername("admin")
-                            .password("{noop}adminPass")
+                            .password("{noop}admin")
                             .roles("ADMIN")
                             .build()
             );

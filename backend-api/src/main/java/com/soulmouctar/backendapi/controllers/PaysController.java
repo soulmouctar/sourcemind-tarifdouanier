@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pays")
+@CrossOrigin
 public class PaysController {
 
     final PaysRepository paysRepository;
@@ -16,7 +17,7 @@ public class PaysController {
         this.paysRepository = paysRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Pays> getAllPays() {
         return paysRepository.findAll();
     }
@@ -26,7 +27,7 @@ public class PaysController {
         return paysRepository.findById(id).get();
     }
 
-    @PostMapping(value = "/") //, consumes = {"application/json"})
+    @PostMapping// (value = "/" , consumes = {"application/json"})
     public Pays createPays(@RequestBody Pays pays) {
         return paysRepository.save(pays);
     }

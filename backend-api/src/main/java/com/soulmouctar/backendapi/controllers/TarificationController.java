@@ -22,13 +22,13 @@ public class TarificationController {
         return tarificationRepository.findAll();
     }
 
-    @PutMapping(value = "/{id}", consumes = {"application/json"})
+    @PutMapping (value = "/{id}", consumes = {"application/json"})
     public Tarification updateTarification(@PathVariable("id") Long id, @RequestBody Tarification tarification) {
         tarification.setId(id);
         return tarificationRepository.save(tarification);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Tarification createTarification(@RequestBody Tarification tarification) {
         return tarificationRepository.save(tarification);
     }

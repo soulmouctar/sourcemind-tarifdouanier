@@ -1,96 +1,77 @@
 package com.soulmouctar.backendapi.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import lombok.Setter;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "email")
-        })
-
+@Setter
+@Getter
+@Table(name = "users")
 public class User{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "id")
+    private Long id;
 
-    @NotBlank
     @Size(max = 20)
     @Column(name = "username")
     private String userName;
+//
+//    @Size(max = 20)
+//    @Column(name = "name")
+//    private String name;
+//    @NotBlank
+//    @Size(max = 50)
+//    @Email
+//    @Column(name = "email")
+//    private String email;
 
-    @NotBlank
-    @Size(max = 50)
-    @Email
-    @Column(name = "email")
-    private String email;
-
+    @Setter
+    @Getter
     @Size(max = 120)
     @Column(name = "password")
-    @JsonIgnore
     private String password;
 
-    private boolean accountNonLocked = true;
-    private boolean accountNonExpired = true;
-    private boolean credentialsNonExpired = true;
+//    private boolean accountNonLocked = true;
+//    private boolean accountNonExpired = true;
+//    private boolean credentialsNonExpired = true;
+    @Setter
+    @Getter
     private boolean enabled = true;
+//
+//    private LocalDate credentialsExpiryDate;
+//    private LocalDate accountExpiryDate;
+//
+//    private String twoFactorSecret;
+//    private boolean isTwoFactorEnabled = false;
+//    private String signUpMethod;
+//
+//    @CreationTimestamp
+//    @Column(updatable = false)
+//    private LocalDateTime createdDate;
+//
+//    @UpdateTimestamp
+//    private LocalDateTime updatedDate;
 
-    private LocalDate credentialsExpiryDate;
-    private LocalDate accountExpiryDate;
-
-    private String twoFactorSecret;
-    private boolean isTwoFactorEnabled = false;
-    private String signUpMethod;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "role_id", referencedColumnName = "role_id")
-    @JsonBackReference
-    @ToString.Exclude
-    private Role role;
-
-    @CreationTimestamp
-    @Column(updatable = false)
-    private LocalDateTime createdDate;
-
-    @UpdateTimestamp
-    private LocalDateTime updatedDate;
-
-    public User(String userName, String email, String password) {
-        this.userName = userName;
-        this.email = email;
+    public User(Long id,String username, String password) {
+        this.id = id;
+        this.userName = username;
         this.password = password;
     }
 
-    public User(String userName, String email) {
-        this.userName = userName;
-        this.email = email;
+    public String getUsername() {
+        return userName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        return userId != null && userId.equals(((User) o).getUserId());
+    public void setUsername(String username) {
+        this.userName = username;
     }
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }
