@@ -8,6 +8,7 @@
 .alpackages/
 #Snapshots folder
 .snapshots/
+.front_react
 #Testing Output folder
 .output/
 #Extension App-file

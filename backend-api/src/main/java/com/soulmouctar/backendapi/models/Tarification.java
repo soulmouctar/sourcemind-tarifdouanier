@@ -19,21 +19,18 @@ public class Tarification {
     @ManyToOne
     private Product product;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+//    private LocalDateTime createdAt;
+//    private LocalDateTime updatedAt;
 
-    public Tarification(Long id, String description, double prix, Pays pays, Product product, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Tarification(Long id, String description, double prix, Pays pays, Product product) {
         this.id = id;
         this.description = description;
         this.prix = prix;
         this.pays = pays;
         this.product = product;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Tarification() {
-
     }
 
     public Long getId() {
@@ -56,13 +53,6 @@ public class Tarification {
         return product;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -84,12 +74,5 @@ public class Tarification {
         this.product = product;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }
 
